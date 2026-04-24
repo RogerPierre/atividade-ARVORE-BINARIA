@@ -1,0 +1,23 @@
+{
+  "name": "atividade-arvore-binaria",
+  "version": "1.0.0",
+  "main": "arvore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RogerPierre/atividade-ARVORE-BINARIA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RogerPierre/atividade-ARVORE-BINARIA/issues"
+  },
+  "homepage": "https://github.com/RogerPierre/atividade-ARVORE-BINARIA#readme",
+  "description": "",
+  "dependencies": {
+    "typescript": "^6.0.3"
+  }
+}

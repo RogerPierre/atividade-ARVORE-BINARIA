@@ -1,0 +1,105 @@
+class No {
+    valor: number
+    pai: No | null = null
+    esq: No | null = null
+    dir: No | null = null
+
+    constructor(valor: number){
+        this.valor = valor
+    }
+}
+
+class Arvore {
+    raiz: No | null = null
+
+    constructor(){
+    }
+
+    ehRaiz(no: No){
+        if(no.pai == null){ 
+            true
+        } else {
+            false
+        }
+    }
+
+    ehFolha(no: No){
+        if(no.esq == no.dir){
+            true
+        } else {
+            false
+        }
+    }
+
+    ehInterno(no: No){
+        if(no.esq != no.dir){
+            true
+        } else {
+            false
+
+        }
+    }
+
+    profundidade(no: No): number{
+        if(no.pai == null){
+            return 0
+        } else {
+            return 1 + this.profundidade(no.pai)
+        }
+    }
+}
+
+let raiz = new No(20)
+let n1 = new No(12)
+let n2 = new No(25)
+let n3 = new No(8)
+let n4 = new No(28)
+let n5 = new No(3)
+let n6 = new No(10)
+let n7 = new No(31)
+let n8 = new No(9)
+
+n1.pai = raiz
+n2.pai = raiz
+n3.pai = n1
+n4.pai = n2
+n5.pai = n3
+n6.pai = n3
+n7.pai = n4	
+n8.pai = n6
+
+raiz.esq = n1
+raiz.dir = n2
+n1.esq = n3
+n2.dir = n4
+n3.esq = n5
+n3.dir = n6
+n4.dir = n7
+n6.esq = n8
+
+
+let arvore: Arvore = new Arvore()
+arvore.raiz = raiz
+
+// console.log(arvore.profundidade(n8))
+
+class calculadoraDeArvore{
+    constructor( public arvore:Arvore){}
+
+    
+    private somarEmProfundidade(no:No|null,profundidade:number):number{
+        if(no==null) return 0
+        if(this.arvore.profundidade(no)==profundidade){
+            return no.valor;
+        }else{
+            
+            return this.somarEmProfundidade(no.dir,profundidade)+this.somarEmProfundidade(no.esq,profundidade)
+        }
+    }
+    
+    public dividir(profundidade:number){
+        return this.somarEmProfundidade(this.arvore.raiz,profundidade)/profundidade
+    }
+}
+const calculadora=new calculadoraDeArvore(arvore)
+console.log(calculadora.dividir(3));
