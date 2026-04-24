@@ -98,8 +98,9 @@ class calculadoraDeArvore{
     }
     
     public dividir(profundidade:number){
+        if(profundidade<=0) return 0
         return this.somarEmProfundidade(this.arvore.raiz,profundidade)/(profundidade)
     }
 }
 const calculadora=new calculadoraDeArvore(arvore)
-console.log(calculadora.dividir(2));
+console.log(calculadora.dividir(0));
