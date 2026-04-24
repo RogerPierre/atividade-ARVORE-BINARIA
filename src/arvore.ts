@@ -89,7 +89,7 @@ class calculadoraDeArvore{
     
     private somarEmProfundidade(no:No|null,profundidade:number):number{
         if(no==null) return 0
-        if(this.arvore.profundidade(no)==profundidade){
+        if(this.arvore.profundidade(no)==profundidade-1){
             return no.valor;
         }else{
             
@@ -98,8 +98,8 @@ class calculadoraDeArvore{
     }
     
     public dividir(profundidade:number){
-        return this.somarEmProfundidade(this.arvore.raiz,profundidade)/profundidade
+        return this.somarEmProfundidade(this.arvore.raiz,profundidade)/(profundidade)
     }
 }
 const calculadora=new calculadoraDeArvore(arvore)
-console.log(calculadora.dividir(3));
+console.log(calculadora.dividir(2));
